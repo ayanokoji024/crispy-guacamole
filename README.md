@@ -4,12 +4,15 @@
 
 Use of KMP and brute force string matching algorithm on the given word puzzle.
 
-## A B C D V D 
-## M X Y J K A 
-## J Z L Y O M 
-## L P R O S E 
-## N D S P U R 
-## F I R E N N 
+|   |   |   |   |   |   |
+|---|---|---|---|---|---|
+| A | B | C | D | V | D |
+| M | X | Y | J | K | A |
+| J | Z | L | Y | O | M |
+| L | P | R | O | S | E |
+| N | D | S | P | U | R | 
+| F | I | R | E | N | N |
+
 
 We are required to search for a given word in this matrix.
 The word could be present in a horizontal or vertical manner but not diagonally.
