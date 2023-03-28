@@ -172,28 +172,8 @@ public class Main {
 
         System.out.println(searchForWord(input));
         System.out.println(searchForWordKMP(input));
-
-//        System.out.println(leftToRight("LYOM"));
-//        System.out.println(topToBottom("LYOM"));
-//
-//        System.out.println("Check for searchForWord method");
-//
-//        System.out.println(searchForWord("LYOM"));
-//        System.out.println(searchForWord("LNE"));
-//        System.out.println(searchForWord("XYZ"));
-
-
-//        for (int a: createLongestPrefixSuffixArray("ABXAB")) {
-//            System.out.print(a + " ");
-//        }
-
-//        System.out.println(leftToRightKMP("FIRE"));
-//        System.out.println(leftToRightKMP("FIE"));
-//        System.out.println(topToBottomKMP("MERN"));
-//        System.out.println(topToBottomKMP("MEN"));
-
-
-
+        
+        scanner.close();
 
     }
 }
