@@ -3,7 +3,7 @@
 
 ## About the Project
 
-Design and Analysis of Algorithms (DAA) assignment, assigned on 14 March, 2023
+Design and Analysis of Algorithms (DAA) assignment, assigned on 14 March, 2023.  
 Use of Knuth–Morris–Pratt(KMP) and Brute-Force string matching algorithms on the given word puzzle.
 
 |   |   |   |   |   |   |
@@ -32,3 +32,4 @@ The word could be present in a horizontal or vertical manner but not diagonally.
 > - Compile using the command: ```javac org\example\Main.java``` 
 > - Class file _Main.class_ will be generated at the locaiton "org\example\"
 > - Run the program using the command: ```java org.example.Main```
+
