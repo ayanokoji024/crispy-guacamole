@@ -1,10 +1,10 @@
 # <img src="https://cdn-icons-png.flaticon.com/512/2079/2079291.png" alt="Avocardo Image" height="40px" width="40px"/>  crispy-guacamole
 
 
-## About the Project
+## About the Program
 
-Design and Analysis of Algorithms (DAA) assignment, assigned on 14 March, 2023.  
-Use of Knuth–Morris–Pratt(KMP) and Brute-Force string matching algorithms on the given word puzzle.
+Design and Analysis of Algorithms (DAA) Assignment, assigned on 14 March, 2023.  
+Use of Knuth–Morris–Pratt(KMP) and Brute-Force string matching algorithms on a word puzzle.
 
 |   |   |   |   |   |   |
 |---|---|---|---|---|---|
@@ -33,3 +33,11 @@ The word could be present in a horizontal or vertical manner but not diagonally.
 > - Class file _Main.class_ will be generated at the locaiton "org\example\"
 > - Run the program using the command: ```java org.example.Main```
 
+### Input Details
+> The program prompts the user for an input string, which is to be searched in the matrix   
+> ```Enter a string to be searched: <Input-String>```   
+> After the results are shown, the program prompts the user if they want to search again or not   
+> ```Search again? [y/n]: <y/Y for searching again>```   
+
+### Sample Run
+![sample](https://user-images.githubusercontent.com/76421618/228444050-20fbf122-f9bb-4d1a-be02-b1be0b0c2f82.png)
