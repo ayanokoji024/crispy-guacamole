@@ -6,9 +6,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
 
     // Declaring puzzle matrix and its height and width as static members of the class
-    public static int MATRIX_HEIGHT;
-    public static int MATRIX_WIDTH;
-    public static char[][] wordPuzzle;
+    public static int MATRIX_HEIGHT = 6;
+    public static int MATRIX_WIDTH = 6;
+    public static char[][] wordPuzzle = new char[][]{{'A','B','C','D','V','D'},{'M','X','Y','J','K','A'},{'J','Z','L','Y','O','M'},{'L','P','R','O','S','E'},{'N','D','S','P','U','R'},{'F','I','R','E','N','N'}};
     static char[] vowels = {'A', 'E', 'I', 'O', 'U'};
 
     // Initializing static members using static block
