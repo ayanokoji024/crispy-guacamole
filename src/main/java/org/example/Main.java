@@ -1,14 +1,30 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
-    public static int MATRIX_HEIGHT = 6;
-    public static int MATRIX_WIDTH = 6;
+    // Declaring puzzle matrix and its height and width as static members of the class
+    public static int MATRIX_HEIGHT;
+    public static int MATRIX_WIDTH;
+    public static char[][] wordPuzzle;
+    static char[] vowels = {'A', 'E', 'I', 'O', 'U'};
 
-    public static char[][] wordPuzzle = new char[][]{{'A','B','C','D','V','D'},{'M','X','Y','J','K','A'},{'J','Z','L','Y','O','M'},{'L','P','R','O','S','E'},{'N','D','S','P','U','R'},{'F','I','R','E','N','N'}};
+    // Initializing static members using static block
+    static{
+        MATRIX_HEIGHT = ThreadLocalRandom.current().nextInt(6,11);
+        MATRIX_WIDTH = MATRIX_HEIGHT;
+        wordPuzzle = new char[MATRIX_HEIGHT][MATRIX_WIDTH];
+        for(int i=0 ; i<MATRIX_HEIGHT ; i++){
+            for(int j=0 ; j<MATRIX_WIDTH ; j++){
+                if((i+j)%2==1) wordPuzzle[i][j] = vowels[ThreadLocalRandom.current().nextInt(0, 5)];
+                else wordPuzzle[i][j] = (char) ThreadLocalRandom.current().nextInt(65, 91);
+            }
+        }
+    }
 
+    // Search for word left to right using brute force
     public static boolean leftToRight(String word){
         if(word.length()>MATRIX_WIDTH || word.length()==0){
             return false;
@@ -31,6 +47,7 @@ public class Main {
         return false;
     }
 
+    // Search for word top to bottom using brute force
     public static boolean topToBottom(String word){
 
         if(word.length()>MATRIX_HEIGHT || word.length()==0){
@@ -54,6 +71,8 @@ public class Main {
         return false;
     }
 
+    // Search for word using brute force. 
+    // Calls the search for top-to-bottom and left-to-right and returns true if the word is found by any one of them
     public static boolean searchForWord(String word){
         return topToBottom(word) || leftToRight(word);
     }
@@ -83,6 +102,8 @@ public class Main {
 
         return lpsArray;
     }
+
+    // Search for word left-to-right using KMP Algorithm
     public static boolean leftToRightKMP(String word){
 
         if(word.length()>MATRIX_WIDTH || word.length()==0){
@@ -119,6 +140,7 @@ public class Main {
         return false;
     }
 
+    // Search for word top-to-bottom using KMP Algorithm
     public static boolean topToBottomKMP(String word){
 
         if(word.length()>MATRIX_HEIGHT){
@@ -152,29 +174,50 @@ public class Main {
         return false;
     }
 
+    // Search for word using KMP Algorithm
+    // Calls for search top-to-bototm and left-to-right
     public static boolean searchForWordKMP(String word){
         return topToBottomKMP(word) || leftToRightKMP(word);
     }
 
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-
+    public static void main(String[] args) {        
+        System.out.println("Word Puzzle:");
         for (int i = 0; i < MATRIX_HEIGHT; i++) {
             for (int j = 0; j < MATRIX_WIDTH; j++) {
                 System.out.print(wordPuzzle[i][j] + " ");
             }
             System.out.println();
         }
-
+        
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a word to be searched: ");
-        String input = scanner.next();
-
-        System.out.println(searchForWord(input));
-        System.out.println(searchForWordKMP(input));
+        char loop = 'y';
+        while(loop=='y' || loop=='Y'){
+            System.out.print("\nEnter a string to be searched: ");
+            String input = scanner.next();
+            boolean result;
+            System.out.print("Using brute force");
+            long start = System.currentTimeMillis();
+            result = searchForWord(input);
+            long end = System.currentTimeMillis();
+            for(int i=0 ; i<3 ; i++){
+                try{Thread.sleep((end-start)*100);} catch(Exception e){}
+                System.out.print(".");
+            }
+            System.out.println(result ? " String Found" : " String Not Found");
+    
+            System.out.print("Using KMP Algorithm");
+            start = System.currentTimeMillis();
+            result = searchForWordKMP(input);
+            end = System.currentTimeMillis();
+            for(int i=0 ; i<3 ; i++){
+                try{Thread.sleep((end-start)*100);} catch(Exception e){}
+                System.out.print(".");
+            }
+            System.out.println(result ? " String Found" : " String Not Found");
+            System.out.print("Search again? [y/n]: "); loop = scanner.next().charAt(0);
+        }
         
         scanner.close();
-
     }
 }
 
